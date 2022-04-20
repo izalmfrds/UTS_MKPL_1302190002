@@ -5,12 +5,11 @@ import java.time.Month;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Employee {
+public class Employee extends Person {
 
+	private static final Object spouseIdNumber = null;
 	private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
+	private Person Name;
 	private String address;
 	
 	private int yearJoined;
@@ -19,23 +18,24 @@ public class Employee {
 	private int monthWorkingInYear;
 	
 	private boolean isForeigner;
-	private boolean gender; //true = Laki-laki, false = Perempuan
+	private enum Gender{
+		Laki,
+		Perempuan
+	}
+	private Gender gender; 
 	
 	private int monthlySalary;
 	private int otherMonthlyIncome;
 	private int annualDeductible;
 	
-	private String spouseName;
-	private String spouseIdNumber;
+	
 
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
+	public Employee(String employeeId, String Name, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, Gender gender) {
 		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
+		
 		this.address = address;
 		this.yearJoined = yearJoined;
 		this.monthJoined = monthJoined;
@@ -79,10 +79,7 @@ public class Employee {
 		this.otherMonthlyIncome = income;
 	}
 	
-	public void setSpouse(String spouseName, String spouseIdNumber) {
-		this.spouseName = spouseName;
-		this.spouseIdNumber = idNumber;
-	}
+	
 	
 	public void addChild(String childName, String childIdNumber) {
 		childNames.add(childName);
